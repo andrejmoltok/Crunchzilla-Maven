@@ -1,0 +1,60 @@
+function drawLine(x1, y1, x2, y2) {
+  c.beginPath();
+  c.moveTo(x1, y1);
+  c.lineTo(x2, y2);
+  c.stroke();
+}
+
+var w = c.canvas.width;
+var h = c.canvas.height;
+
+function randomRGBA() {
+  var r = randInt(255);
+  var g = randInt(255);
+  var b = randInt(255);
+  var a = Math.random();
+  var rgba = [r,g,b,a].join(",");
+  return "rgba(" + rgba + ")";
+}
+function randInt(limit) {
+  var x = Math.random() * limit;
+  return Math.floor(x);
+}
+
+c.lineWidth = 5;
+
+
+for (var i = 0; i < 10; i++){
+	drawLine(30,i+10,150,i+10);
+}	
+
+
+var n = 40;
+var dy = 5;
+for (var i = 0; i < n; i = i + 1) {
+  var y = 20 + i * dy;
+  drawLine(30, y, 200, y);
+}
+
+c.translate()
+c.save()
+c.rotate()
+c.restore()
+
+
+function strokeSquare(x, y, size, angle) {
+  c.save();
+  c.translate(x + size / 2, y + size / 2);
+  c.rotate(angle);
+  c.strokeRect(-size / 2, -size / 2,
+                size, size);
+  c.restore();
+}
+
+var angle = 0.5;
+var num = 15;
+c.translate(150, 150);
+for (var i = 0; i < num; i = i + 1) {
+  c.strokeRect(-75, -75, 150, 150);
+  c.rotate(angle);
+}
