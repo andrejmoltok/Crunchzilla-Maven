@@ -58,3 +58,112 @@ for (var i = 0; i < num; i = i + 1) {
   c.strokeRect(-75, -75, 150, 150);
   c.rotate(angle);
 }
+
+
+var minLength = 5;
+var yScale = 0.5;
+var xScale = 1.5;
+var w = c.canvas.width;
+var h = c.canvas.height;
+
+drawBranch(w/2, h, 100, 0);
+
+function drawBranch(x, y, l, direction) {
+  var x2 = x + l * direction;
+  var y2 = y - l;
+  drawLine(x, y, x2, y2);
+  if (l > minLength) {
+    // Call drawBranch twice more
+    drawBranch(x2, y2, l * yScale, -xScale);
+    drawBranch(x2, y2, l * yScale, xScale);
+  }
+}
+
+function drawLine(x1, y1, x2, y2) {
+  c.beginPath();
+  c.moveTo(x1, y1);
+  c.lineTo(x2, y2);
+  c.stroke();
+}
+
+
+var angle = 0.35;
+var branchScale = 0.75;
+var l = 75;
+var minL = 5;
+var w = c.canvas.width;
+var h = c.canvas.height;
+
+c.translate(w/2, h);
+drawBranch(l, 0);
+
+function drawBranch(l, direction) {
+  c.save();
+  c.rotate(angle * direction);
+  c.fillRect(-l / 20, 0, l / 10, -l);
+  if (l > minL) {
+    c.translate(0, -l);
+    drawBranch(l * branchScale, -1);
+    drawBranch(l * branchScale, 1);
+  }
+  c.restore();
+}
+
+
+function drawBranch(l, direction) {
+  c.save();
+  
+  c.fillRect(-1, 0, 2, -l);
+  
+  c.translate(0, -l);
+  
+  if ( l > 5 ) {
+    drawBranch(l * 0.8, -direction);
+    
+    c.rotate(0.5 * direction);
+    drawBranch(l * 0.7, -direction);
+  }
+  
+  c.restore();
+}
+
+c.translate(200, 250);
+drawBranch(50, 1);
+
+
+
+var size = 50;
+
+for (var i = 0; i < 300; i = i + 100) {
+  for (var j = 0; j < 200; j = j + 100) {
+    fillSquare(i, j, size);
+  }
+}
+for (var i = 50; i < 300; i = i + 100) {
+  for (var j = 50; j < 200; j = j + 100) {
+    fillSquare(i, j, size);
+  }
+}
+
+function fillSquare(x, y, s) {
+  c.fillRect(x, y, s, s);
+}
+
+
+
+var size = 50;
+
+for (var i = 0; i < 3; i = i + 1) {
+  for (var j = 0; j < 2; j = j + 1) {
+    var x = i * 2 * size;
+    var y = j * 2 * size;
+    fillSquare(x, y, size);
+    x = x + size;
+    y = y + size;
+    fillSquare(x, y, size);
+  }
+}
+
+function fillSquare(x, y, s) {
+  c.fillRect(x, y, s, s);
+}
