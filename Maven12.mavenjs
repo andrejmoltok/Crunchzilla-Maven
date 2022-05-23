@@ -1,0 +1,10 @@
+//drawing shapes with 'for' loop
+
+c.beginPath();
+for (var i = 30; i <= 180; i = i + 30) {
+  c.moveTo(70 + i, i);
+  c.lineTo(120 + i, 85 + i);
+  c.lineTo(20 + i, 85 + i);
+  c.lineTo(70 + i, i);
+}
+c.stroke();
