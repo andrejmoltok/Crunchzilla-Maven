@@ -1,0 +1,6 @@
+var size = 80;
+
+c.fillStyle = "red";
+c.fillRect(30, 30, size, size);
+c.fillStyle = "rgba(0, 255, 255, 0.5)";  - in RGBA, alpha 0.0 is invisible and 1.0 is visible
+c.fillRect(30, 30, size, size);
