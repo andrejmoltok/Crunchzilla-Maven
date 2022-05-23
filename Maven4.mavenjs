@@ -1,0 +1,4 @@
+var size = 80;
+
+c.fillStyle = "rgb(255, 0, 0)";   - rgb() means the color code used with red-green-blue color palette
+c.fillRect(20, 20, size, size);
