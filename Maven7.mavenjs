@@ -1,0 +1,14 @@
+var offset = 30;
+var size = 80;
+
+c.fillStyle = "green";
+c.fillRect(offset, offset, size, size);
+
+offset = 100;
+c.fillRect(offset, offset, size, size); - in this case this box is using the second 'offset' setting
+
+offset = offset + 50;
+c.fillRect(offset, offset, size, size);
+
+offset = offset * 5;                    - offset gets multiplied by and made this the new 'offset' value
+c.fillRect(offset, offset, size, size);
