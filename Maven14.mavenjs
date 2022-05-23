@@ -1,0 +1,7 @@
+//using functions
+
+function strokeSquare(left, top, size) {
+  c.strokeRect(left, top, size, size);
+}
+
+strokeSquare(30,30,100);
