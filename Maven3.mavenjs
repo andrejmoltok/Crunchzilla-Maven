@@ -1,0 +1,4 @@
+var size = 80;
+
+c.fillStyle = "blue";
+c.fillRect(30, 30, size, size);
