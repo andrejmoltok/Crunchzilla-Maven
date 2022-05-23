@@ -1,0 +1,2 @@
+var size = 80;
+c.fillRect(30, 20, size, size);
