@@ -1,0 +1,13 @@
+var size = 80;
+var offset = 30;
+
+c.fillStyle = "rgba(255, 0, 255, 0.7)";
+for (var i = 0; i < 5; i = i + 1){            - 'for' loop repeats code specified times without repeating code
+  c.fillRect(offset, offset, size, size);
+  offset = offset + 40;
+}
+
+for (var i = 0; i < 10; i = i + 1){            
+  c.fillRect(offset, offset, size, size);
+  offset = offset + 10;
+}
