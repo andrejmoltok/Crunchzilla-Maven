@@ -1,0 +1,1 @@
+c.fillRect(20, 20, 50,75);   - c. - means canvas, fillRect(left, top, width, height) - draws a rectangle
