@@ -1,0 +1,4 @@
+var size = 80;
+
+c.fillStyle = "rgba(0, 255, 255, 0.5)"; -  rgba means there is an alpha for transparency added at the end to the color
+c.fillRect(20, 20, size, size);
