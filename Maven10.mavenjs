@@ -1,0 +1,26 @@
+var size = 50;
+var offset = 20;
+
+//for loop changes the color for every each box in a row
+for (var i = 0; i < 10; i = i + 1) {
+  var b = i * 25;
+  var rgba = "rgba(0, 0, " + b + ", 0.5)";
+  c.fillStyle = rgba;
+  c.fillRect(offset, offset, size, size);
+  offset = offset + 20;
+}
+
+
+
+
+var size = 50;
+var offset = 20;
+
+
+//for loop changing transparency for every each box in a row
+for (var i = 0.1; i < 0.5; i = i + 0.05) {
+  var rgba = "rgba(0, 0, 255, " + i + ")";
+  c.fillStyle = rgba;
+  c.fillRect(offset, offset, size, size);
+  offset = offset + 20;
+}
