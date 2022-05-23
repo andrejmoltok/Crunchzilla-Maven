@@ -1,0 +1,22 @@
+//creating lines
+
+c.beginPath();
+c.moveTo(30,20);
+c.lineTo(50,70);
+c.stroke();
+
+
+//moveTo(left,top) - moves cursor to specified point
+//lineTo(left,top) - draws line to this coordinate
+
+
+//triangle
+c.beginPath();
+c.moveTo(100, 30);
+c.lineTo(150, 115);
+c.lineTo(50, 115);
+c.lineTo(100,30);
+c.stroke();
+
+
+c.strokeStyle = "blue"; - colors the outline of the shapes, not filling them
