@@ -1,0 +1,7 @@
+var num = 3;
+var size = 100;
+var offset = 20;
+
+for (var i = 1; i <= num; i = i + 1) {
+  c.strokeRect(i * offset, i * offset, size, size);
+}
