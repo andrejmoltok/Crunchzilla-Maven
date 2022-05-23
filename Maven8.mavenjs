@@ -1,0 +1,8 @@
+var size = 80;
+var offset = 50;
+
+c.fillStyle = "rgba(0, 255, 255, 0.5)";
+c.fillRect(offset, offset, size, size);
+if (size < 100){
+   c.fillRect(100, 100, size, size);
+}
