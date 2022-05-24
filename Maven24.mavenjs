@@ -1,0 +1,9 @@
+c.fillStyle = "blue";
+c.fillRect(50, 20, 200, 200);
+// Eyes
+c.clearRect(100, 60, 20, 20);
+c.clearRect(180, 60, 20, 20);
+// Mouth
+c.clearRect(100, 160, 100, 10);
+
+//c.clearRect function erases a specified portion from an existing shape
