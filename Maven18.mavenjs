@@ -1,0 +1,13 @@
+function drawLine(x1, y1, x2, y2){
+  c.beginPath();
+  c.moveTo(x1,y1);
+  c.lineTo(x2,y2);
+  c.stroke();
+}
+
+var px = 250;
+var py = 170;
+for (var i = 0; i < 10; i = i + 1) {
+  var y = i * 30;
+  drawLine(0, y, px, py);
+}
