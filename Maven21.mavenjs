@@ -1,0 +1,19 @@
+var num = 5;
+var w = c.canvas.width;     //drawing area width - 400
+var h = c.canvas.height;    //drawing area height - 300
+
+//starts from 0,
+for (var i = 0; i < num; i = i + 1) {
+  var x = i * w / (num - 1);   //x = i*400/4
+  var y = i * h / (num - 1);   //y = i*300/4
+  drawLine(0, y, x, h);        //drawLine(0,y,x,300);
+}
+
+function drawLine(x1, y1, x2, y2) {
+  c.beginPath();
+  c.moveTo(x1, y1);
+  c.lineTo(x2, y2);
+  c.stroke();
+}
+
+drawLine(0,0,400,300);
