@@ -1,0 +1,22 @@
+var num = 10;
+var px = 200;
+var py = 150;
+var w = c.canvas.width;
+var h = c.canvas.height;
+
+c.strokeStyle = "blue";
+for (var i = 0; i < num; i = i + 1) {
+  var y = i * h / (num - 1);
+  drawLine(0, y, px, py);
+  drawLine(w, y, px, py);
+  var x = y * w / h;
+  drawLine(x, 0, px, py);
+  drawLine(x, h, px, py);
+}
+
+function drawLine(x1, y1, x2, y2) {
+  c.beginPath();
+  c.moveTo(x1, y1);
+  c.lineTo(x2, y2);
+  c.stroke();
+}
