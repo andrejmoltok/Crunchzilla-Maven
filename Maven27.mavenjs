@@ -1,0 +1,16 @@
+branchBoxForLoop(100);
+
+function branchBoxForLoop(size) {
+  c.strokeStyle = "blue";
+  for (var i = size; i > 4; i = i * 0.65) {
+    c.translate(i, i);
+    c.strokeRect(-i, -i, i, i);
+  }
+}
+function branchBox(size) {
+  c.translate(size, size);
+  c.strokeRect(-size, -size, size, size);
+  if (size > 5) {
+    branchBox(size * 0.65);
+  }
+}
