@@ -6,10 +6,12 @@ var h = c.canvas.height;
 
 c.strokeStyle = "blue";
 for (var i = 0; i < num; i = i + 1) {
-  var y = i * h / (num - 1);
+  var y = i * h / (num - 1); // takes the for loop variable, multiplies with canvas height and divides by (num - 1)
+  //x1, px, and py are constant, y or y1 is what changes by the for loop
   drawLine(0, y, px, py);
   drawLine(w, y, px, py);
-  var x = y * w / h;
+  var x = y * w / h; //takes y, multiplies with canvas width and divides by canvas height
+  //y2, px and py are constant, x or x1 is what changes by the for loop
   drawLine(x, 0, px, py);
   drawLine(x, h, px, py);
 }
