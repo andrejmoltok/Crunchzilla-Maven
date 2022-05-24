@@ -1,14 +1,14 @@
 var w = c.canvas.width;   //400
 var h = c.canvas.height;   //300
 
-drawBranch(w/2, h, 100, 0);    //(400/2,300,100,0)
+drawBranch(w/2, h, 100, 0);//(400/2,300,100,0)
 //l - hosszusag
 //direction - irany
 
 function drawBranch(x, y, l, direction) {
-  var x2 = x + l * direction;
-  var y2 = y - l;
-  drawLine(x, y, x2, y2);
+  var x2 = x + l * direction;//(w/2+100*0)
+  var y2 = y - l;//(300-100=200)
+  drawLine(x, y, x2, y2);//(200,300,200,200)
   if (l > 20) {
     // Call drawBranch twice more
     drawBranch(x2, y2, l / 2, -0.8);        //(200,200,50,-0.8)
