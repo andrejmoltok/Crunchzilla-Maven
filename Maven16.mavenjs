@@ -1,0 +1,30 @@
+c.fillStyle = "gold";
+var size = 70;
+
+//first iteration of j, i will be 0, then second j iteration i will be 1 and so on until i gets to 5
+// i = 0; j = 0,1,2,3
+// i = 1; j = 0,1,2,3
+// i = 2; j = 0,1,2,3
+// i = 3; j = 0,1,2,3
+// i = 4; j = 0,1,2,3
+// i = 5; j = 0,1,2,3
+
+for (var i = 0; i < 5; i = i + 1) {
+  for (var j = 0; j < 4; j = j + 1) {
+    fillStar(i * size, j * size, size);
+  }
+}
+
+
+
+
+function fillStar(x, y, s) {
+  c.beginPath();
+  c.moveTo(x, y + s * 0.4);
+  c.lineTo(x + s, y + s * 0.4);
+  c.lineTo(x + s * 0.15, y + s * 0.9);
+  c.lineTo(x + s / 2, y);
+  c.lineTo(x + s * 0.85, y + s * 0.9);
+  c.lineTo(x, y + s * 0.4);
+  c.fill();
+}
