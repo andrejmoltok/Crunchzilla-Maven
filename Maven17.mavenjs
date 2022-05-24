@@ -1,0 +1,32 @@
+c.canvas.width - shows the width of the drawing area
+
+c.canvas.width / size - shows how many objects can fit into the drawing area dpending on thesize of the objects
+
+Math.floor() - is a rounding function, drops off factions (Math.floor(7.8) = 7)
+
+Math.random() - gives us a random number every time we use it btween 0.0 and 1.0
+
+
+
+c.fillStyle = "gold";
+var n = 100;
+var size = 10;
+var w = c.canvas.width;
+var h = c.canvas.height;
+
+for (var i = 0; i < n; i = i + 1) {
+  var x = (w - size) * Math.random();
+  var y = (h - size) * Math.random();
+  fillStar(x, y, size);
+}
+
+function fillStar(x, y, s) {
+  c.beginPath();
+  c.moveTo(x, y + s * 0.4);
+  c.lineTo(x + s, y + s * 0.4);
+  c.lineTo(x + s * 0.15, y + s * 0.9);
+  c.lineTo(x + s / 2, y);
+  c.lineTo(x + s * 0.85, y + s * 0.9);
+  c.lineTo(x, y + s * 0.4);
+  c.fill();
+}
