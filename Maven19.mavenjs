@@ -1,0 +1,26 @@
+var num = 20;
+var px = 200;
+var py = 150;
+var w = c.canvas.width;
+var h = c.canvas.height;
+
+
+//drawLine function draws lines from the middle of the drawing area into all directions
+//px and py are always the same, draws lines into these coordinates
+//the starting point that changes all the time
+
+for (var i = 0; i < num; i = i + 1) {
+  var y = i * h / (num - 1);
+  drawLine(w, y, px, py);
+  var x = y * w / h;
+  drawLine(x, h, px, py);
+  drawLine(x, 0, px, py);
+  drawLine(0, y, px, py);
+}
+
+function drawLine(x1, y1, x2, y2) {
+  c.beginPath();
+  c.moveTo(x1, y1);
+  c.lineTo(x2, y2);
+  c.stroke();
+}
