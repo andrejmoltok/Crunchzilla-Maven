@@ -1,0 +1,15 @@
+myForLoop(3);
+myRecurse(3);
+
+function myForLoop(num){
+  for (var i=num; i < 6; i++){
+	c.fillText("Hello",20*i,50*i);
+  }
+}
+
+function myRecurse(str){
+	if (str > 1){
+    myRecurse(str-1);
+  }
+  c.fillText("World",40*str,90*str);
+}
