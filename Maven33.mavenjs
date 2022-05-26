@@ -26,3 +26,31 @@ function drawBranch(l, direction) {
 //c.translate steps to the end of a branch, then drawBranch calls itself to draw the following two branches into
 //two directions
 //the c.restore sets back to the default state sved by c.save to continue drawing into the rigth direction
+
+//this uses Math.random() function  to produce random trees with random shapes
+
+var angle = 0.80;
+var branchScale = 0.75;
+var l = 75;
+var minL = 5;
+var w = c.canvas.width;
+var h = c.canvas.height;
+
+c.translate(w/2, h);
+drawBranch(l, 0);
+
+function drawBranch(l, direction) {
+  c.save();
+  c.rotate(MRand(0,angle)*direction);
+  c.fillRect(-l / 20, 0, l / 10, -l);
+  if (l > minL) {
+    c.translate(0, -l);
+    drawBranch(l * branchScale, -1);
+    drawBranch(l * branchScale, 1);
+  }
+  c.restore();
+}
+
+function MRand(min,max) {
+	return Math.random()*(max-min)+min;
+}
