@@ -1,0 +1,19 @@
+function drawBranch(l, direction) {
+  c.save();
+  
+  c.fillRect(-1, 0, 2, -l);
+  
+  c.translate(0, -l);
+  
+  if ( l > 5 ) {
+    drawBranch(l * 0.8, -direction);
+    
+    c.rotate(0.5 * direction);
+    drawBranch(l * 0.7, -direction);
+  }
+  
+  c.restore();
+}
+
+c.translate(200, 250);
+drawBranch(50, 1);
