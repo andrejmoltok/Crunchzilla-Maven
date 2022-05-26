@@ -10,3 +10,16 @@ function branchBox(size) {
 
 
 //branchBox calls itself and shrinks 'size' each time it calls itself until (size > 5)
+
+
+//the same thing but with a 'for' loop
+
+branchBoxForLoop(100);
+
+function branchBoxForLoop(size) {
+  c.strokeStyle = "blue";
+  for (var i = size; i > 4; i = i * 0.65) {
+    c.translate(i, i);
+    c.strokeRect(-i, -i, i, i);
+  }
+}
