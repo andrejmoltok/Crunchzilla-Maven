@@ -1,0 +1,30 @@
+Multiply with 0.5 or Divide with 2
+
+
+Multiplication by 0.5 is faster and more efficient then dividing by 2
+
+var minLength = 20;
+var yScale = 0.5;
+var xScale = 0.8; // leptek
+var w = c.canvas.width;
+var h = c.canvas.height;
+
+drawBranch(w/2, h, 100, 0);
+
+function drawBranch(x, y, l, direction) {
+  var x2 = x + l * direction;
+  var y2 = y - l;
+  drawLine(x, y, x2, y2);
+  if (l > minLength) {
+    // Call drawBranch twice more
+    drawBranch(x2, y2, l * yScale, -xScale);   // yScale = 0.5 as used in multiplication
+    drawBranch(x2, y2, l * yScale, xScale);
+  }
+}
+
+function drawLine(x1, y1, x2, y2) {
+  c.beginPath();
+  c.moveTo(x1, y1);
+  c.lineTo(x2, y2);
+  c.stroke();
+}
