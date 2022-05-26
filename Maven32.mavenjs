@@ -1,0 +1,12 @@
+branchBox(90);
+
+function branchBox(size) {
+  c.translate(size, size);   //90,90 -> 58.5 -> 38,38 etc.
+  c.strokeRect(-size, -size, size, size);   //-90,-90,90,90 -> -58.5,-58.5,58.5,58.5
+  if (size > 5) {    //90 > 5 -> 58.5 ->
+    branchBox(size * 0.65);     //90*0.65=58.5*0.65=38 etc.
+  }
+}
+
+
+//branchBox calls itself and shrinks 'size' each time it calls itself until (size > 5)
