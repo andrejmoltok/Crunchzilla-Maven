@@ -44,6 +44,18 @@ function drawBranch(x, y, l, direction) {
   }
 }
 
+
+//function drawBranch(x, y, l, direction) {
+//  //var x2 = x + l * direction;
+//  //var y2 = y - l;
+//  drawLine(x, y, (x + l * direction), (y - l));
+//  if (l > 20) {
+//    // Call drawBranch twice more
+//    drawBranch((x + l * direction), (y - l), l / 2, -0.8);
+//    drawBranch((x + l * direction), (y - l), l / 2, 0.8);
+//  }
+//}
+
 function drawLine(x1, y1, x2, y2) {
   c.beginPath();
   c.moveTo(x1, y1);
