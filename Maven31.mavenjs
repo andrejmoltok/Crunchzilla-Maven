@@ -1,0 +1,20 @@
+//recursion functions differently
+//first uses a 'for' loop
+//second subtracts 1 each time the function calls itself
+
+
+nSquareRecursive(4);
+
+function nSquare(n) {
+  c.strokeStyle = "blue";
+  for (var i = n; i > 0; i = i - 1) {
+    c.strokeRect(i * 30, i * 30, 100, 100);
+  }
+}
+
+function nSquareRecursive(n) {
+  if (n > 1) {
+    nSquareRecursive(n - 1);
+  }
+  c.strokeRect(n * 30, n * 30, 100, 100);
+}
