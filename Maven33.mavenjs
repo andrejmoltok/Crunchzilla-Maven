@@ -25,3 +25,4 @@ function drawBranch(l, direction) {
 //then the if statement sets the condition from which follows:
 //c.translate steps to the end of a branch, then drawBranch calls itself to draw the following two branches into
 //two directions
+//the c.restore sets back to the default state sved by c.save to continue drawing into the rigth direction
