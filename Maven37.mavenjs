@@ -1,0 +1,3 @@
+//modulo operator in Javascript
+
+((a % n ) + n ) % n
