@@ -1,0 +1,14 @@
+//drawing a checkerboard pattern with for loops
+
+for (var i=0;i<8;i++){
+  for (var j=0;j<6;j++){
+    if ((i+j)%2){
+    c.fillStyle="brown";
+    c.fillRect(i*50,j*50,50,50);
+    }
+    else {
+    c.fillStyle="black";
+    c.fillRect(i*50,j*50,50,50);
+    }
+  }
+}
