@@ -1,0 +1,12 @@
+// Box object
+function Box(x, y, size) {
+  this.x = x;
+  this.y = y;
+  this.size = size;
+  this.angle = 0;
+  this.dx = 0;
+  this.dy = 0;
+}
+// Create a new box
+var b = new Box(10, 10, 100);
+c.strokeRect(b.x, b.y, b.size, b.size);
