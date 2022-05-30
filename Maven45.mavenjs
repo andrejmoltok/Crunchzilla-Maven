@@ -1,0 +1,24 @@
+var h = c.canvas.width;
+var w = c.canvas.height;
+
+function triangle(x,a){
+	this.x = x;
+  this.a = (Math.random() * Math.PI);
+  
+  this.draw = function(){
+    c.beginPath();
+		c.moveTo((x*3),(x*2));
+		c.lineTo((x*4),(x*3));
+		c.lineTo((x*4),x);
+		c.fill();
+		};
+  
+  this.rota = function(){
+  c.rotate(a);
+  };
+}
+
+var b1 = new triangle(15,30);
+c.translate(h/2,w/2);
+b1.draw();
+b1.rota();
