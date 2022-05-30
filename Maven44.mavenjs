@@ -1,0 +1,68 @@
+function Box(x, y, size, a, dx, dy, da) {
+  this.x = x;
+  this.y = y;
+  this.size = size;
+  this.angle = a;
+  this.dx = dx;
+  this.dy = dy;
+  this.da = da;
+
+  this.update = function() {
+    this.angle += this.da;
+    this.x = this.x + this.dx;
+    this.y = this.y + this.dy;
+    // Bounce off the edges
+    if (this.x < 0 ||
+        this.x + this.size > w) {
+      this.dx = -this.dx;
+      this.da = -this.da;
+    }
+    if (this.y < 0 ||
+        this.y + this.size > h) {
+      this.dy = -this.dy;
+      this.da = -this.da;
+    }
+    this.stroke();
+  };
+  
+  this.stroke = function() {
+    c.save();
+    var x = this.x + this.size / 2;
+    var y = this.y + this.size / 2;
+    c.translate(x, y);
+    c.rotate(this.angle);
+    c.strokeRect(-this.size / 2, -this.size / 2,
+                 this.size, this.size);
+    c.restore();
+  };
+}
+
+var timeStep = 50; // In milliseconds
+var w = c.canvas.width;
+var h = c.canvas.height;
+var cmTID;
+
+function updateAll() {
+  c.clearRect(0, 0, w, h);
+  for (var i = 0; i < boxes.length; i = i + 1) {
+    boxes[i].update();
+  }
+  clearTimeout(cmTID);
+  cmTID = setTimeout(updateAll, timeStep);
+}
+
+// Create the boxes
+var boxes = [];
+var s = 80;
+for (var i = 0; i < 3; i = i + 1) {
+  var x = Math.random() * (w - s);
+  var y = Math.random() * (h - s);
+  var a = Math.random() * 2 - 1;
+  var dx = Math.random() * 2 - 1;
+  var dy = Math.random() * 2 - 1;
+  var da = 0.1 * (Math.random() * 2 - 1);
+  boxes.push(new Box(x, y, s, a, dx, dy, da));
+}
+// Do the first update
+updateAll();
+
