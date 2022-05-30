@@ -1,0 +1,23 @@
+function Box(x, y, size) {
+  this.x = x;
+  this.y = y;
+  this.size = size;
+  this.angle = 0;
+  this.dx = 0;
+  this.dy = 0;
+
+  this.stroke = function() {
+    c.strokeRect(this.x, this.y,
+                 this.size, this.size);
+  };
+}
+// Create an empty list of boxes
+var boxes = [];
+// Create new boxes and add them to our list
+for (var i = 0; i < 3; i = i + 1) {
+  boxes.push(new Box(i * 30, i * 20, 100));
+}
+// Tell all the boxes to draw themselves
+for (var i = 0; i < boxes.length; i = i + 1) {
+  boxes[i].stroke();
+}
