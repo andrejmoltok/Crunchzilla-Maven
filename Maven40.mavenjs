@@ -1,0 +1,17 @@
+var step = 20;
+var angle = 0.01;
+var w = c.canvas.width;
+var h = c.canvas.height;
+var cmTID;
+
+c.translate(w / 2, h / 2);
+drawStep();
+function drawStep() {
+  c.clearRect(-w / 2, -h / 2, w, h); // clears screen so that we can draw the rectangle again in a different position with rotate
+  c.strokeRect(-50, -50, 100, 100);
+  c.rotate(angle);
+  clearTimeout(cmTID);
+  cmTID = setTimeout(drawStep, step);
+}
+
+//there are no built-in functions, you have to write the functions that make up something similar to animation
