@@ -1,0 +1,58 @@
+function Ball(x, y, r, dx, dy) {
+  this.x = x;
+  this.y = y;
+  this.r = r;
+  this.dx = dx;
+  this.dy = dy;
+
+  this.update = function() {
+    this.x = this.x + this.dx;
+    this.y = this.y + this.dy;
+    // Bounce off the edges
+    if (this.x - this.r < 0 ||
+        this.x + this.r > w) {
+      this.dx = -this.dx;
+    }
+    if (this.y - this.r < 0 ||
+        this.y + this.r > h) {
+      this.dy = -this.dy;
+    }
+    this.stroke();
+  };
+  
+  this.stroke = function() {
+    c.beginPath();
+    c.arc(this.x, this.y, this.r,
+                 0, Math.PI * 2);
+    c.stroke();
+  };
+}
+
+var timeStep = 50; // In milliseconds
+var w = c.canvas.width;
+var h = c.canvas.height;
+var cmTID;
+
+function updateAll() {
+  c.clearRect(0, 0, w, h);
+  for (var i = 0; i < balls.length; i = i + 1) {
+    balls[i].update();
+  }
+  clearTimeout(cmTID);
+  cmTID = setTimeout(updateAll, timeStep);
+}
+
+// Create the balls
+var balls = [];
+var r = 40;
+for (var i = 0; i < 1; i = i + 1) {
+  var x = Math.random() * (w - r * 2) + r;
+  var y = Math.random() * (h - r * 2) + r;
+  var dx = Math.random() * 2 - 1;
+  var dy = Math.random() * 2 - 1;
+  
+  balls.push(new Ball(x, y, r, dx, dy));
+}
+// Do the first update
+updateAll();
+
