@@ -11,12 +11,15 @@ function Box(x, y, size) {
                  this.size, this.size);
   };
 }
+
 // Create an empty list of boxes
 var boxes = [];
+
 // Create new boxes and add them to our list
 for (var i = 0; i < 3; i = i + 1) {
   boxes.push(new Box(i * 30, i * 20, 100));
 }
+
 // Tell all the boxes to draw themselves
 for (var i = 0; i < boxes.length; i = i + 1) {
   boxes[i].stroke();
