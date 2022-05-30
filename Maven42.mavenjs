@@ -1,0 +1,15 @@
+function Box(x, y, size) {
+  this.x = x;
+  this.y = y;
+  this.size = size;
+  this.angle = 0;
+  this.dx = 0;
+  this.dy = 0;
+
+  this.stroke = function() {
+    c.strokeRect(this.x, this.y,
+                 this.size, this.size);
+  };
+}
+var b1 = new Box(30, 30, 120);
+b1.stroke();
