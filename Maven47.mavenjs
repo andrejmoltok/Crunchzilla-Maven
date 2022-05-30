@@ -1,0 +1,89 @@
+function Ball(x, y, r, dx, dy) {
+  this.x = x;
+  this.y = y;
+  this.r = r;
+  this.dx = dx;
+  this.dy = dy;
+
+  this.update = function() {
+    // Acceleration toward the mouse
+    var diffX = mouseX - this.x;
+    var diffY = mouseY - this.y;
+    var dist2 = diffX * diffX + diffY * diffY + 1;
+    var ddx = accel * Math.abs(diffX) *
+              diffX / dist2;
+    var ddy = accel * Math.abs(diffY) *
+              diffY / dist2;
+    
+    // Bounce off the edges
+    if (this.x - this.r + this.dx < 0 ||
+        this.x + this.r + this.dx > w) {
+      this.dx = -this.dx * friction;
+    } else {
+      this.dx += ddx;
+    }
+    if (this.y - this.r + this.dy < 0 ||
+        this.y + this.r + this.dy > h) {
+      this.dy = -this.dy * friction;
+    } else {
+      this.dy += ddy;
+    }
+    
+    this.x = this.x + this.dx;
+    this.y = this.y + this.dy;
+    
+    // Enforce the boundaries
+    this.x = Math.max(this.r, this.x);
+    this.x = Math.min(w - this.r, this.x);
+    this.y = Math.max(this.r, this.y);
+    this.y = Math.min(h - this.r, this.y);
+    
+    this.stroke();
+  };
+  
+  this.stroke = function() {
+    c.beginPath();
+    c.arc(this.x, this.y, this.r,
+                 0, Math.PI * 2);
+    c.stroke();
+  };
+}
+
+var accel = 0.1;
+var friction = 0.8;
+var mouseX = 0;
+var mouseY = 0;
+var timeStep = 25; // In milliseconds
+var w = c.canvas.width;
+var h = c.canvas.height;
+var cmTID;
+
+function updateAll() {
+  c.clearRect(0, 0, w, h);
+  for (var i = 0; i < balls.length; i = i + 1) {
+    balls[i].update();
+  }
+  clearTimeout(cmTID);
+  cmTID = setTimeout(updateAll, timeStep);
+}
+
+// Create the balls
+var balls = [];
+var r = 40;
+for (var i = 0; i < 4; i = i + 1) {
+  var x = Math.random() * (w - r * 2) + r;
+  var y = Math.random() * (h - r * 2) + r;
+  var dx = Math.random() * 2 - 1;
+  var dy = Math.random() * 2 - 1;
+  
+  balls.push(new Ball(x, y, r, dx, dy));
+}
+// Do the first update
+updateAll();
+
+// Store the mouse position when the mouse moves
+var pane = document.getElementById('pane');
+pane.onmousemove = function(evt) {
+  mouseX = evt.clientX;
+  mouseY = evt.clientY;
+};
