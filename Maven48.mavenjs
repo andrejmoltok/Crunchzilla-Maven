@@ -1,0 +1,61 @@
+var dx = 5;
+var dy = 5;
+var x = 50;
+var y = 50;
+var s = 50;
+var WIDTH = 400;
+var HEIGHT = 300;
+
+function box(x,y,s){
+	this.x = x;
+  this.y = y;
+  this.s = s;
+  
+  this.stroke = function(){
+    c.fillStyle="brown";
+    c.fillRect(this.x,this.y,this.s,this.s);
+  };
+}
+
+function clear() {
+c.clearRect(0, 0, WIDTH, HEIGHT);
+}
+
+
+//function init() {
+//return setInterval(draw, 0);
+//}
+
+function doKeyDown(evt){
+switch (evt.keyCode) {
+case 38:  /* Up arrow was pressed */
+if (y - dy > 0){
+y -= dy;
+}
+break;
+case 40:  /* Down arrow was pressed */
+if (y + dy < HEIGHT){
+y += dy;
+}
+break;
+case 37:  /* Left arrow was pressed */
+if (x - dx > 0){
+x -= dx;
+}
+break;
+case 39:  /* Right arrow was pressed */
+if (x + dx < WIDTH){
+x += dx;
+}
+break;
+}
+}
+
+
+function draw(){
+var d1 = new box(x,y,s);
+d1.stroke();
+}
+
+//init();
+window.addEventListener('keydown',doKeyDown,true);
