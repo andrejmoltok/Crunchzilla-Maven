@@ -1,0 +1,28 @@
+var s = 50;
+var step = 1000;
+var a = 0;
+var b = 0;
+var w = c.canvas.width;
+var h = c.canvas.height;
+var cmTID;
+
+function box(x,y,s){
+	c.fillRect(x,y,s,s);
+}
+
+function clear(a,b,w,h){
+	c.clearRect(a,b,w,h);
+}
+
+function update(){
+	for (var i=0;i<w;i=i+50){
+  for (var j=0;j<h;j=j+50){
+		clear(a,b,w,h);
+    box(i,j,s);
+    clearTimeout(cmTID);
+    cmTID = setTimeout(update,step);
+    }
+  }
+}
+
+update();
