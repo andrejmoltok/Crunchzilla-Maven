@@ -1,0 +1,34 @@
+function randomRGBA() {
+  var r = randInt(255);
+  var g = randInt(255);
+  var b = randInt(255);
+  var a = Math.random();
+  var rgba = [r,g,b,a].join(",");
+  return "rgba(" + rgba + ")";
+}
+
+function randInt(limit) {
+  var x = Math.random() * limit;
+  return Math.floor(x);
+}
+
+function repeat() {
+  var x1 = Math.random() * c.canvas.width;
+	var y1 = Math.random() * c.canvas.height;
+	var x2 = Math.random() * c.canvas.width;
+	var y2 = Math.random() * c.canvas.height;
+	var end1 = Math.random() * c.canvas.width;
+	var end2 = Math.random() * c.canvas.height;
+
+	for (var i=0;i<=15;i++){
+  for (var j=0;j<=15;j++){
+			c.beginPath();
+			c.moveTo(i*35, j*35);
+			c.strokeStyle = randomRGBA();
+			c.bezierCurveTo(x1, y1, x2, y2, end1, end2);
+			c.stroke();
+	}
+	}
+}
+
+repeat();
